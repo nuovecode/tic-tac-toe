@@ -39,7 +39,15 @@ class Match {
         case 'box':
           let body = {slug: this.slug, box: e.target.getAttribute('data-box'), player: this.turn}
           this.postData('/V1/move', body).then((response) => {
-            e.target.innerHTML = 'Player ' + this.turn
+            console.log(response)
+            if (response.status === 'ok') {
+              e.target.innerHTML = 'Player ' + this.turn
+              if (response.winner) {
+                document.getElementById('turn').innerHTML = response.turn;
+              } else {
+                document.getElementById('winner').innerHTML = response.winner;
+              }
+            }
           })
           break;
 

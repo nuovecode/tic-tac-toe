@@ -1,6 +1,8 @@
 <%- include('blocks/header') -%>
 Next move: <span class="text-primary">Player <span id="turn"><%= turn %></span></span>
 <table id="tris">
+    <!-- TODO: the table should be dynamically created starting from the "grid size" attribute
+            chosen by the user in configuration. The attribute is present in this template as "grid"  -->
     <tbody>
     <tr>
         <td class="box" data-box="00">00</td>
@@ -19,6 +21,7 @@ Next move: <span class="text-primary">Player <span id="turn"><%= turn %></span><
     </tr>
     </tbody>
 </table>
+<p class="text-primary">The winner is: <span id="winner"></span></p>
 <button class="reset-game">Reset</button>
 <!--
 TODO: Pretty sad. The whole frontend would go out,

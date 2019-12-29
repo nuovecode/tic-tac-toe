@@ -20,7 +20,7 @@ export class gameController {
 
         this.app.route(`/V1/game`).post(this.gameService.newGame);
 
-        this.app.route(`/V1/move`).post(this.gameService.makeMove);
+        this.app.route(`/V1/move`).post([this.gameService.makeMove,this.gameService.winnerCheck,this.gameService.updateGame]);
 
     }
 }
