@@ -1,0 +1,30 @@
+<%- include('blocks/header') -%>
+Next move: <span class="text-primary">Player <span id="turn"><%= turn %></span></span>
+<table id="tris">
+    <tbody>
+    <tr>
+        <td class="box" data-box="00">00</td>
+        <td class="box" data-box="01">01</td>
+        <td class="box" data-box="02">02</td>
+    </tr>
+    <tr>
+        <td class="box" data-box="10">10</td>
+        <td class="box" data-box="11">11</td>
+        <td class="box" data-box="12">12</td>
+    </tr>
+    <tr>
+        <td class="box" data-box="20">20</td>
+        <td class="box" data-box="21">21</td>
+        <td class="box" data-box="22">22</td>
+    </tr>
+    </tbody>
+</table>
+<button class="reset-game">Reset</button>
+<!--
+TODO: Pretty sad. The whole frontend would go out,
+ maybe with a responsive rendering system.
+-->
+<script>
+  new Match(<%= turn %>, '<%= slug %>')
+</script>
+<%- include('blocks/footer') -%>
