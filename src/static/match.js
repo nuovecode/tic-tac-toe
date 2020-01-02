@@ -35,11 +35,11 @@ class Match {
 
   handleEventListeners() {
     document.addEventListener('click',  (e) => {
+      e.preventDefault();
       switch (e.target.className) {
         case 'box':
           let body = {slug: this.slug, box: e.target.getAttribute('data-box'), player: this.turn}
           this.postData('/V1/move', body).then((response) => {
-            console.log(response)
             if (response.status === 'ok') {
               e.target.innerHTML = 'Player ' + this.turn
               if (response.winner) {
@@ -50,7 +50,15 @@ class Match {
             }
           })
           break;
-
+        case 'submit-game':
+          // TODO: static
+          let fakeData = {
+            "grid" : 3,
+            "players" : 2
+          }
+          this.postData('/V1/game', fakeData).then((response) => {
+            window.location.href = `${this.baseUrl}/${response.slug}`;
+          })
       }
     }, false);
   }

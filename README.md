@@ -1,4 +1,4 @@
-# Tic Tac Toe Foorban
+# Tic Tac Toe
 
 Start dev app:
 
@@ -6,3 +6,8 @@ Start dev app:
 docker-compose up
 ```
 
+Go to:
+
+```
+http://localhost:8080/
+```
